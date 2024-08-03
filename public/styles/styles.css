@@ -1,0 +1,34 @@
+.header{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+}
+.header h1{
+    padding: 10px;
+}
+
+.container{
+    height: 100%;
+}
+
+/* .reviews{} */
+
+.review{
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.review-header{
+    display: flex;  
+}
+
+.review-header img {
+    max-width: 195px;
+}
+
+.review-header-info{
+    margin-left: 20px;
+}
+
+

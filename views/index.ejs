@@ -1,0 +1,44 @@
+<%- include("./partials/header.ejs") %>
+
+    <div class="header">
+    <h1><%= title %></h1>
+    <p>Our page utilizes API services from <a href="https://openlibrary.org/">Open Library</a> to fetch book details.
+    This integration ensures accurate data and a seamless experience for book enthusiasts.</p>
+    <form action="/add" method="GET">
+        <input type="hidden" name="create" value="create">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+    </div>
+
+
+    <div class="container">
+        <div class="reviews">
+            <a href="">
+               <% result.forEach((result) => { %>
+                <div class="review">
+                  <div class="review-header">
+                    <img src="<%=result.photourl%>" alt="cover-photo" loading="lazy">
+                   <div class="review-header-info">
+                    <h3><%= result.title %></h3>
+                    <p><%=result.author%><p>
+                    <span><%=result.reviewdate%></span>
+                    <p>How strongly I recommend it: <%=result.rating%>/10</p>
+                  </div>
+                  </div>
+                    <p><%= result.reviewcontent %></p>
+                    <form action="/edit" method="POST">
+                        <input type="hidden" name="edit" value=<%= result.id %>>
+                        <button type="submit" class="btn btn-primary">Edit</button>
+                    </form>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="delete" value=<%= result.id %>>                  
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
+                    <hr />
+                </div>
+                <% }); %>
+            </a>
+        </div>
+    </div>
+<%- include("./partials/footer.ejs") %>
